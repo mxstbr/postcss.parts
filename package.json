@@ -10,11 +10,13 @@
   "devDependencies": {
     "browserify": "~6.2.0",
     "envify": "~3.0.0",
+    "minifyify": "^7.0.3",
     "reactify": "^0.15",
     "watchify": "~2.1.0",
     "local-web-server": "0.5.20"
   },
   "scripts": {
+    "build": "browserify js/app.js -d -p [minifyify --map js/bundle.map.json --output js/bundle.map.json] > js/bundle.js",
     "start": "watchify -o js/bundle.js -v -d . | ws"
   },
   "repository": {
