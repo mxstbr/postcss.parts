@@ -550,9 +550,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
 	},
 	_search: function(text) {
 		_currentPlugins = {};
-		if (OWATracker !== undefined) {
-			OWATracker.trackAction('Plugin', 'Search', text);
-		}
 		for (var category in _fullPlugins) {
 			var currentCategory = _fullPlugins[category];
 			_currentPlugins[category] = [];
