@@ -1,0 +1,32 @@
+{
+  "name": "postcss.parts",
+  "version": "1.0.0",
+  "description": "A searchable catalog of PostCSS plugins",
+  "main": "js/app.js",
+  "dependencies": {
+    "flux": "^2.0.0",
+    "react": "^0.12.0"
+  },
+  "devDependencies": {
+    "browserify": "~6.2.0",
+    "envify": "~3.0.0",
+    "reactify": "^0.15",
+    "watchify": "~2.1.0",
+    "local-web-server": "0.5.20"
+  },
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d . | ws"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mxstbr/postcss.parts.git"
+  },
+  "author": "Max Stoiber",
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}
