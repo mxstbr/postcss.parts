@@ -223,6 +223,10 @@ var _fullPlugins = {
 			"url": "https://github.com/geddski/csstyle",
 			"name": "csstyle",
 			"description": "Adds components workflow to your styles."
+		}, {
+			"url": "https://github.com/1j01/postcss-gtk",
+			"name": "postcss-gtk",
+			"description": "Processes GTK+ CSS into browser CSS."
 		}
 	],
 	"Colors": [
