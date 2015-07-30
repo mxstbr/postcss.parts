@@ -33,7 +33,7 @@ var App = React.createClass({
 					<a href="https://twitter.com/mxstbr" className="header__logo" >
 						<img src="/img/mxstbr_logo.svg" />
 					</a>
-					<a href="https://github.com/mxstbr/postcss.parts" className="header__add">Add a plugin</a>
+					<a href="https://github.com/mxstbr/postcss.parts#adding-a-plugin" className="header__add">Add a plugin</a>
 					<h1 className="header__title">PostCSS.parts</h1>
 					<h2 className="header__subtitle">A searchable catalog of PostCSS plugins</h2>
 				</section>
