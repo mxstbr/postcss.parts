@@ -1,0 +1,22 @@
+@charset 'UTF-8';
+
+/* 1. Vendors */
+@import 'vendor/_normalize';
+
+/* 2. Configuration and helpers */
+@import 'utils/_variables';
+@import 'base/_helpers';
+
+/* 3. Base stuff */
+@import 'base/_base';
+
+/* 4. Layout-related sections */
+@import 'layout/_header';
+@import 'layout/_footer';
+
+/* 5. Components */
+@import 'components/_buttons';
+@import 'components/_pluginlist';
+
+/* 6. Themes */
+@import 'themes/_default';

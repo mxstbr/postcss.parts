@@ -1,7 +1,7 @@
 var AppStore = require('../stores/AppStore');
 var AppActions = require('../actions/AppActions');
 var PluginListItem = require('./pluginListItem.react');
-var timeout;
+
 
 var App = React.createClass({
 	getInitialState: function() {

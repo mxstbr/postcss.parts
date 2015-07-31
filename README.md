@@ -18,9 +18,11 @@ Alternatively, contact me on twitter about the plugin: [@mxstbr](https://twitter
 
 2. Run `npm install` to install the dependencies.
 
-3. Run `npm start` to start the local web server. *If you get an error at this stage, try running `npm install -g watchify` and see if it fixes the problem!*
+3. Run `grunt` to start the local web server.
 
 4. Go to `http://localhost:8000` and you should see the app running!
+
+If you change something in the JavaScript or CSS files, they get compiled and minified automatically on save. Simply look at your browser and you should see the changes you made!
 
 ## License
 
