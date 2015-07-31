@@ -27,7 +27,3 @@ If you change something in the JavaScript or CSS files, they get compiled and mi
 ## License
 
 This project is licensed under the MIT license. For more information see `LICENSE.md`.
-
-## Credits
-
-Thanks to Hugo Giraudel and his brilliant [sass-boilerplate](https://github.com/HugoGiraudel/sass-boilerplate).
