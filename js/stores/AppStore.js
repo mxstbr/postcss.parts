@@ -15,7 +15,7 @@ var _fullPlugins = {
 			"name": "cssnano",
 			"description": "Plugin pack that optimizes CSS size for use in production."
 		}, {
-			"url": "http://cssnext.io/",
+			"url": "https://github.com/cssnext/cssnext/",
 			"name": "cssnext",
 			"description": "Plugin pack that allows you to use future CSS features today."
 		}, {
