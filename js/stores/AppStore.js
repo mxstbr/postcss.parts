@@ -512,7 +512,11 @@ var _fullPlugins = {
 			"url": "https://github.com/davidtheclark/list-selectors",
 			"name": "list-selectors",
 			"description": "Lists and categorizes the selectors used in your CSS, for code review."
-		}
+		}, {
+      "url": "https://github.com/a-axton/postcss-selector-source",
+      "name": "postcss-selector-source",
+      "description": "Displays the original line and column position of your CSS selectors and declarations from your pre-processed files."
+    }
 	],
 	"Reporters": [
 		{
