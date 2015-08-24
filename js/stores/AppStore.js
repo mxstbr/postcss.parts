@@ -270,7 +270,12 @@ var _fullPlugins = {
 			"url": "https://github.com/seaneking/postcss-hexrgba",
 			"name": "postcss-hexrgba",
 			"description": "Adds shorthand hex rgba(hex, alpha) method."
+		}, {
+			"url": "https://github.com/himynameisdave/postcss-rgb-plz",
+			"name": "postcss-rgb-plz",
+			"description": "converts 3 or 6 digit hex values to rgb"
 		}
+		
 	],
 	"Images and Fonts": [
 		{
