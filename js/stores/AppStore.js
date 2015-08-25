@@ -321,6 +321,10 @@ var _fullPlugins = {
 			"url": "https://github.com/lexich/webpcss",
 			"name": "webpcss",
 			"description": "Adds URLs for WebP images for browsers that support WebP."
+		}, {
+			"url": "https://github.com/yuezk/postcss-urlrev",
+			"name": "postcss-urlrev",
+			"description": "Adds md5 hash strings to url()s."
 		}
 	],
 	"Grids": [
