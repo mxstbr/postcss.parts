@@ -19,7 +19,7 @@ var App = React.createClass({
 
 		plugins.forEach(function(plugin){
 			pluginList.push(<PluginListItem key={"list-item-" + plugin.name}
-												name={plugin.name}
+												name={plugin.name.replace("postcss-", "")}
 												description={plugin.description}
 												url={plugin.url} />);
 		});
