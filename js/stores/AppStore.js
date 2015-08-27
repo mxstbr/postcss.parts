@@ -14,16 +14,15 @@ var AppStore = assign({}, EventEmitter.prototype, {
 	_search: function(text) {
 		_currentPlugins = [];
 
-		_fullPlugins.forEach(function(plugin){
-			var name = plugin.name.toLowerCase(),
-					desc = plugin.description.toLowerCase(),
-					test = text.toLowerCase();
+		_fullPlugins.forEach(function(plugin) {
+			var name = plugin.name.toLowerCase();
+			var desc = plugin.description.toLowerCase();
+			var test = text.toLowerCase();
 
-			if( name.indexOf(test) > -1 || desc.indexOf(test) > -1 )
+			if(name.indexOf(test) > -1 || desc.indexOf(test) > -1) {
 				_currentPlugins.push(plugin);
-
+			}
 		});
-
 	},
 	emitChange: function() {
 		this.emit('change');
