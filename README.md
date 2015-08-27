@@ -4,13 +4,9 @@ A searchable catalog of PostCSS plugins, built using React.js and untilising the
 
 ## Adding a plugin
 
-1. Fork this repo
+This app now pulls data from [postcss-plugins](https://github.com/himynameisdave/postcss-plugins), which will hopefully serve as more centralized list of all PostCSS plugins in the future. You can [head over here](https://github.com/himynameisdave/postcss-plugins#submitting-a-new-plugin) to walk through the easy steps to add a plugin.
 
-2. Add your plugin to the `_fullPlugins` variable in `js/stores/AppStore.js` in the correct category and with a `name`, `description` and `url`.
-
-3. Submit a Pull Request
-
-Alternatively, contact me on twitter about the plugin: [@mxstbr](https://twitter.com/mxstbr)
+Also, you could contact [@mxstbr](https://twitter.com/mxstbr) or [@himynamisdave](https://twitter.com/dave_lunny) on Twitter about getting your plugin added.
 
 ## Setup
 
