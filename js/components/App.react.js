@@ -5,7 +5,7 @@ var PluginListItem = require('./pluginListItem.react');
 
 var App = React.createClass({
 	getInitialState: function() {
-		return AppStore.getData();
+		return { data: AppStore.getData() };
 	},
 	componentDidMount: function() {
 		AppStore.addChangeListener(this._onChange);
@@ -15,17 +15,14 @@ var App = React.createClass({
 	},
 	render: function() {
 		var pluginList = [];
-		var plugins = this.state;
+		var plugins = this.state.data;
 
-		for (var category in plugins) {
-			var currentCategory = plugins[category];
-			for (var i = 0; i < currentCategory.length; i++) {
-				pluginList.push(<PluginListItem key={"list-item-" + currentCategory[i].name}
-												name={currentCategory[i].name}
-												description={currentCategory[i].description}
-												url={currentCategory[i].url} />);
-			}
-		}
+		plugins.forEach(function(plugin){
+			pluginList.push(<PluginListItem key={"list-item-" + plugin.name}
+												name={plugin.name}
+												description={plugin.description}
+												url={plugin.url} />);
+		});
 
 		return(
 			<div>
@@ -53,7 +50,7 @@ var App = React.createClass({
 	},
 	// If the data changes, get the new data and rerender if something changed
 	_onChange: function() {
-	    this.setState(AppStore.getData());
+	    this.setState({ data: AppStore.getData() });
 	}
 });
 

@@ -4,7 +4,8 @@
   "description": "A searchable catalog of PostCSS plugins",
   "dependencies": {
     "flux": "^2.0.0",
-    "react": "^0.12.0"
+    "react": "^0.12.0",
+    "postcss-plugins": "^1.1.1"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
