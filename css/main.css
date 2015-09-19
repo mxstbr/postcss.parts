@@ -17,6 +17,7 @@
 /* 5. Components */
 @import 'components/_buttons';
 @import 'components/_pluginlist';
+@import 'components/_loading-spinner';
 
 /* 6. Themes */
 @import 'themes/_default';

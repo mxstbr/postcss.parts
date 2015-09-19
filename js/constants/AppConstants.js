@@ -2,5 +2,6 @@ var keyMirror = require('react/lib/keyMirror');
 
 // Define actions
 module.exports = keyMirror({
-    SEARCH: null
+    SEARCH: null,
+    GET_UPDATED_LIST: null
 });

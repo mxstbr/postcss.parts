@@ -3,3 +3,4 @@ node_modules
 js/bundle.js
 js/bundle.map.json
 js/bundle.min.js
+npm-debug.log

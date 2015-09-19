@@ -7,7 +7,12 @@ var AppActions = {
 			actionType: AppConstants.SEARCH,
 			text: text
 		});
-	}
+	},
+  getUpdatedList: function() {
+    AppDispatcher.handleAction({
+      actionType: AppConstants.GET_UPDATED_LIST
+    });
+  }
 };
 
 module.exports = AppActions;

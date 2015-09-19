@@ -9,6 +9,7 @@ var App = React.createClass({
 	},
 	componentDidMount: function() {
 		AppStore.addChangeListener(this._onChange);
+		AppActions.getUpdatedList();
 	},
 	componentWillUnmount: function() {
 		AppStore.removeChangeListener(this._onChange);
@@ -17,12 +18,18 @@ var App = React.createClass({
 		var pluginList = [];
 		var plugins = this.state.data;
 
-		plugins.forEach(function(plugin){
-			pluginList.push(<PluginListItem key={"list-item-" + plugin.name}
-												name={plugin.name.replace("postcss-", "")}
-												description={plugin.description}
-												url={plugin.url} />);
-		});
+		if (plugins.length === 0) {
+			pluginList.push(<PluginListItem key={"list-item-loader"}
+											spinner={true} />
+			);
+		} else {
+			plugins.forEach(function(plugin){
+				pluginList.push(<PluginListItem key={"list-item-" + plugin.name}
+													name={plugin.name.replace("postcss-", "")}
+													description={plugin.description}
+													url={plugin.url} />);
+			});
+		}
 
 		return(
 			<div>

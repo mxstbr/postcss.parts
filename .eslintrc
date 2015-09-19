@@ -1,7 +1,0 @@
-{
-  	"extends": "airbnb",
-  	"ecmaFeatures": {
-      	"forOf": true,
-      	"jsx": true
-  	},
-}

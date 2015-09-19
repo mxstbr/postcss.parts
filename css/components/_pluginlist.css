@@ -64,6 +64,10 @@
 	background-color: $light-grey;
 }
 
+.plugin--loading:hover {
+	background-color: white;
+}
+
 .plugin__name {
 	display: inline-block;
 	color: $text-color;

@@ -3,9 +3,10 @@ var AppActions = require('../actions/AppActions');
 var EventEmitter = require('events').EventEmitter;
 var AppConstants = require('../constants/AppConstants');
 var assign = require('react/lib/Object.assign');
-
-var _currentPlugins = _fullPlugins = require('postcss-plugins');
-
+var Promise = require('es6-promise').Promise;
+require('whatwg-fetch');
+var _currentPlugins = [];
+var _fullPlugins = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
 	getData: function() {
@@ -28,6 +29,28 @@ var AppStore = assign({}, EventEmitter.prototype, {
 			_currentPlugins = _fullPlugins;
 		}
 	},
+	_getPlugins: function() {
+		fetch('https://raw.githubusercontent.com/himynameisdave/postcss-plugins/master/plugins.json')
+			.then(this._checkStatus)
+			.then(function(response) {
+		    return response.json();
+		  }).then(function(json) {
+		    _currentPlugins = _fullPlugins = json;
+		    AppStore.emitChange();
+		  }).catch(function(ex) {
+		    var _currentPlugins = _fullPlugins = require('postcss-plugins');
+		    AppStore.emitChange();
+		  });
+	},
+	_checkStatus: function(response) {
+	  if (response.status >= 200 && response.status < 300) {
+	    return response
+	  } else {
+	    var error = new Error(response.statusText)
+	    error.response = response
+	    throw error
+	  }
+	},
 	emitChange: function() {
 		this.emit('change');
 	},
@@ -45,6 +68,9 @@ AppDispatcher.register(function(payload) {
 	switch(action.actionType) {
 		case AppConstants.SEARCH:
 			AppStore._search(action.text);
+			break;
+		case AppConstants.GET_UPDATED_LIST:
+			AppStore._getPlugins();
 			break;
 		default:
 			return false;
