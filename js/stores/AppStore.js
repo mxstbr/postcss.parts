@@ -5,15 +5,19 @@ var AppConstants = require('../constants/AppConstants');
 var assign = require('react/lib/Object.assign');
 var Promise = require('es6-promise').Promise;
 require('whatwg-fetch');
-var _currentPlugins = [];
+
+var state = {
+	plugins: [],
+	pluginsLoaded: false
+}
 var _fullPlugins = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
 	getData: function() {
-		return _currentPlugins;
+		return state;
 	},
 	_search: function(text) {
-		_currentPlugins = [];
+		state.plugins = [];
 
 		if (text) {
 			_fullPlugins.forEach(function(plugin) {
@@ -22,12 +26,13 @@ var AppStore = assign({}, EventEmitter.prototype, {
 				var test = text.toLowerCase();
 
 				if(name.indexOf(test) > -1 || desc.indexOf(test) > -1) {
-					_currentPlugins.push(plugin);
+					state.plugins.push(plugin);
 				}
 			});
 		} else {
-			_currentPlugins = _fullPlugins;
+			state.plugins = _fullPlugins;
 		}
+		AppStore.emitChange();
 	},
 	_getPlugins: function() {
 		fetch('https://raw.githubusercontent.com/himynameisdave/postcss-plugins/master/plugins.json')
@@ -35,10 +40,12 @@ var AppStore = assign({}, EventEmitter.prototype, {
 			.then(function(response) {
 		    return response.json();
 		  }).then(function(json) {
-		    _currentPlugins = _fullPlugins = json;
+		    state.plugins = _fullPlugins = json;
+		    state.pluginsLoaded = true;
 		    AppStore.emitChange();
 		  }).catch(function(ex) {
-		    var _currentPlugins = _fullPlugins = require('postcss-plugins');
+		    state.plugins = _fullPlugins = require('postcss-plugins');
+		    state.pluginsLoaded = true;
 		    AppStore.emitChange();
 		  });
 	},

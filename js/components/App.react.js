@@ -5,7 +5,7 @@ var PluginListItem = require('./pluginListItem.react');
 
 var App = React.createClass({
 	getInitialState: function() {
-		return { data: AppStore.getData() };
+		return AppStore.getData();
 	},
 	componentDidMount: function() {
 		AppStore.addChangeListener(this._onChange);
@@ -16,9 +16,10 @@ var App = React.createClass({
 	},
 	render: function() {
 		var pluginList = [];
-		var plugins = this.state.data;
+		var plugins = this.state.plugins;
+		console.log(this.state);
 
-		if (plugins.length === 0) {
+		if (plugins.length === 0 && this.state.pluginsLoaded === false) {
 			pluginList.push(<PluginListItem key={"list-item-loader"}
 											spinner={true} />
 			);
@@ -57,7 +58,7 @@ var App = React.createClass({
 	},
 	// If the data changes, get the new data and rerender if something changed
 	_onChange: function() {
-	    this.setState({ data: AppStore.getData() });
+	    this.setState(AppStore.getData());
 	}
 });
 
