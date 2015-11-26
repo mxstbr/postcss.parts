@@ -17,7 +17,6 @@ var App = React.createClass({
 	render: function() {
 		var pluginList = [];
 		var plugins = this.state.plugins;
-		console.log(this.state);
 
 		if (plugins.length === 0 && this.state.pluginsLoaded === false) {
 			pluginList.push(<PluginListItem key={"list-item-loader"}
