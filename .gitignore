@@ -4,3 +4,5 @@ js/bundle.js
 js/bundle.map.json
 js/bundle.min.js
 npm-debug.log
+css/compiled.css
+css/maps/compiled.css.map

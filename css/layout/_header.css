@@ -33,9 +33,8 @@
 	left: 0;
 	padding: 2%;
 	display: block;
-	width: 10em;
-}
-
-.header__logo img {
-	max-width: 100%;
+	font-size: 1.5em;
+	font-family: Georgia, Times, 'Times New Roman', serif;
+	text-decoration: none;
+	color: #999999;
 }
