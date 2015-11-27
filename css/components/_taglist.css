@@ -18,3 +18,10 @@
 .tag:nth-child(4n) {
   border-right: none;
 }
+
+@media (max-width: $max-width) {
+  .tag {
+    width: 50%;
+    height: calc($max-width / 4);
+  }
+}
