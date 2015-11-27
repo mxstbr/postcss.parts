@@ -23,19 +23,19 @@ var App = React.createClass({
 		var heading = [];
 
 		if (this.state.searchTerm !== "" || this.state.selectedTag !== false) {
-			mainContent.push(<PluginList plugins={this.state.plugins} loaded={this.state.pluginsLoaded} />);
+			mainContent.push(<PluginList key="PluginList" plugins={this.state.plugins} loaded={this.state.pluginsLoaded} />);
 			if (this.state.selectedTag !== false) {
-				heading.push(<ListHeading text={this.state.selectedTag.capitalizeFirstLetter()} selectTag={this._selectTag}></ListHeading>);
+				heading.push(<ListHeading key="ListHeading" text={this.state.selectedTag.capitalizeFirstLetter()} selectTag={this._selectTag}></ListHeading>);
 			}
 		} else {
-			mainContent.push(<TagList tags={this.state.tags} selectTag={this._selectTag}/>);
+			mainContent.push(<TagList key="TagList" tags={this.state.tags} selectTag={this._selectTag}/>);
 		}
 
 		return(
 			<div>
 				<Header />
 				<section className="wrapper">
-					<SearchField search={this._search} selectedTag={this.state.selectedTag} />
+					<SearchField key="SearchField" search={this._search} selectedTag={this.state.selectedTag} />
 					{ heading }
 					{ mainContent }
 				</section>

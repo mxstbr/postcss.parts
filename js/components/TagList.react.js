@@ -4,7 +4,7 @@ var TagList = React.createClass({
   render: function() {
     var tagList = [];
     this.props.tags.forEach(function(tag) {
-      tagList.push(<TagListItem name={tag} selectTag={this.props.selectTag} />);
+      tagList.push(<TagListItem key={"tag-" + tag} name={tag} selectTag={this.props.selectTag} />);
     }.bind(this));
 
     return(
