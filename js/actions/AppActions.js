@@ -12,7 +12,14 @@ var AppActions = {
     AppDispatcher.handleAction({
       actionType: AppConstants.GET_UPDATED_LIST
     });
-  }
+  },
+	selectTag: function(name, tag) {
+		AppDispatcher.handleAction({
+      actionType: AppConstants.SELECT_TAG,
+			name: name,
+			tag: tag
+    });
+	}
 };
 
 module.exports = AppActions;

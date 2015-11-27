@@ -1,4 +1,4 @@
-var PluginListItem = require('./pluginListItem.react');
+var PluginListItem = require('./PluginListItem.react');
 
 var PluginList = React.createClass({
   render: function() {

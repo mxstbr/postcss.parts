@@ -8,7 +8,28 @@ require('whatwg-fetch');
 
 var state = {
 	plugins: [],
-	pluginsLoaded: false
+	tags: [
+		"analysis",
+		"color",
+		"debug",
+		"extensions",
+		"fallbacks",
+		"fonts",
+		"future",
+		"fun",
+		"grids",
+		"images",
+		"media-queries",
+		"optimizations",
+		"other",
+		"pack",
+		"sass",
+		"shortcuts",
+		"svg"
+	],
+	pluginsLoaded: false,
+	selectedTag: false,
+	searchTerm: ""
 }
 var _fullPlugins = [];
 
@@ -16,21 +37,44 @@ var AppStore = assign({}, EventEmitter.prototype, {
 	getData: function() {
 		return state;
 	},
-	_search: function(text) {
+	_search: function(text, tag) {
 		state.plugins = [];
-
-		if (text) {
+		state.searchTerm = text;
+		if (tag === undefined) {
+			tag = state.selectedTag;
+		}
+		if (text || tag) {
 			_fullPlugins.forEach(function(plugin) {
 				var name = plugin.name.toLowerCase();
 				var desc = plugin.description.toLowerCase();
-				var test = text.toLowerCase();
+				var lowerCaseText = text.toLowerCase();
 
-				if(name.indexOf(test) > -1 || desc.indexOf(test) > -1) {
-					state.plugins.push(plugin);
+				if (tag === false || tag === undefined || tag === "") {
+					if(name.indexOf(lowerCaseText) > -1 || desc.indexOf(lowerCaseText) > -1) {
+						state.plugins.push(plugin);
+					}
+				} else {
+					var tags = plugin.tags;
+					for (var i = 0; i < tags.length; i++) {
+						if (tags[i] === tag && (name.indexOf(lowerCaseText) > -1 || desc.indexOf(lowerCaseText) > -1)) {
+							state.plugins.push(plugin);
+							break;
+						}
+					}
 				}
 			});
 		} else {
 			state.plugins = _fullPlugins;
+		}
+		AppStore.emitChange();
+	},
+	_selectTag: function(name) {
+		if (name === "" || name === undefined || name === null) {
+			state.selectedTag = false;
+			AppStore._search(state.searchTerm);
+		} else {
+			state.selectedTag = name;
+			AppStore._search(state.searchTerm, name);
 		}
 		AppStore.emitChange();
 	},
@@ -78,6 +122,9 @@ AppDispatcher.register(function(payload) {
 			break;
 		case AppConstants.GET_UPDATED_LIST:
 			AppStore._getPlugins();
+			break;
+		case AppConstants.SELECT_TAG:
+			AppStore._selectTag(action.name, action.tag);
 			break;
 		default:
 			return false;
