@@ -1,4 +1,4 @@
-.plugin__list {
+.wrapper {
 	max-width: $max-width;
 	margin: 0 auto;
 	display: block;
