@@ -117,12 +117,26 @@ var AppStore = assign({}, EventEmitter.prototype, {
 				return response.json();
 			}).then(function(json) {
 				var results = json.results;
+				for (var i = 0; i < results.length; i++) {
+					var currentResult = results[i];
+					if (currentResult.repository !== undefined) {
+						currentResult.repository[0] = AppStore._normalizeLink(currentResult.repository[0]);
+					}
+				}
 				state.plugins = _fullPlugins = results;
 				state.pluginsLoaded = true;
 				AppStore.emitChange();
 			}).catch(function(ex) {
 				console.log("ERROR FETCHING", ex);
 			})
+	},
+	_normalizeLink: function(input) {
+		var normalized = input
+			.toString()
+			.match(/(github\.com.*)/gi)
+			.toString()
+			.replace(".git", "");
+		return "https://" + normalized;
 	},
 	_checkStatus: function(response) {
 	  if (response.status >= 200 && response.status < 300) {
