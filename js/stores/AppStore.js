@@ -8,6 +8,25 @@ require('whatwg-fetch');
 
 var state = {
 	plugins: [],
+	tagArrays: {
+		"analysis": [],
+		"color": [],
+		"debug": [],
+		"extensions": [],
+		"fallbacks": [],
+		"fonts": [],
+		"future": [],
+		"fun": [],
+		"grids": [],
+		"images": [],
+		"media-queries": [],
+		"optimizations": [],
+		"other": [],
+		"pack": [],
+		"sass": [],
+		"shortcuts": [],
+		"svg": []
+	},
 	tags: [
 		"analysis",
 		"color",
@@ -79,19 +98,31 @@ var AppStore = assign({}, EventEmitter.prototype, {
 		AppStore.emitChange();
 	},
 	_getPlugins: function() {
-		fetch('https://raw.githubusercontent.com/himynameisdave/postcss-plugins/master/plugins.json')
+		// fetch('https://raw.githubusercontent.com/himynameisdave/postcss-plugins/master/plugins.json')
+		// 	.then(this._checkStatus)
+		// 	.then(function(response) {
+		//     return response.json();
+		//   }).then(function(json) {
+		//     state.plugins = _fullPlugins = json;
+		//     state.pluginsLoaded = true;
+		//     AppStore.emitChange();
+		//   }).catch(function(ex) {
+		//     state.plugins = _fullPlugins = require('postcss-plugins');
+		//     state.pluginsLoaded = true;
+		//     AppStore.emitChange();
+		//   });
+		fetch('https://npmsearch.com/query?q=keywords:postcss-plugin&fields=name,rating,description,repository&sort=rating:desc&size=1000')
 			.then(this._checkStatus)
 			.then(function(response) {
-		    return response.json();
-		  }).then(function(json) {
-		    state.plugins = _fullPlugins = json;
-		    state.pluginsLoaded = true;
-		    AppStore.emitChange();
-		  }).catch(function(ex) {
-		    state.plugins = _fullPlugins = require('postcss-plugins');
-		    state.pluginsLoaded = true;
-		    AppStore.emitChange();
-		  });
+				return response.json();
+			}).then(function(json) {
+				var results = json.results;
+				state.plugins = _fullPlugins = results;
+				state.pluginsLoaded = true;
+				AppStore.emitChange();
+			}).catch(function(ex) {
+				console.log("ERROR FETCHING", ex);
+			})
 	},
 	_checkStatus: function(response) {
 	  if (response.status >= 200 && response.status < 300) {

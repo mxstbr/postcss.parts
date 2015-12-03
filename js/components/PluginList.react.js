@@ -11,12 +11,19 @@ var PluginList = React.createClass({
 											spinner={true} />
 			);
 		} else {
-			plugins.forEach(function(plugin){
-				pluginList.push(<PluginListItem key={"list-item-" + plugin.name}
-													name={plugin.name.replace("postcss-", "")}
-													description={plugin.description}
-													url={plugin.url} />);
-			});
+			for (var i = 0; i < plugins.length; i++) {
+        var plugin = plugins[i];
+        if (plugin.name !== undefined &&
+            plugin.description !== undefined &&
+            plugin.repository !== undefined) {
+  				pluginList.push(
+            <PluginListItem key={"list-item-" + plugin.name[0]}
+  						name={plugin.name[0].replace("postcss-", "")}
+  						description={plugin.description[0]}
+  						url={plugin.repository[0].replace("git+", "")} />
+          );
+        }
+			}
 		}
 
     return(

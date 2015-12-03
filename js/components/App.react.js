@@ -22,14 +22,15 @@ var App = React.createClass({
 		var mainContent = [];
 		var heading = [];
 
-		if (this.state.searchTerm !== "" || this.state.selectedTag !== false) {
-			mainContent.push(<PluginList key="PluginList" plugins={this.state.plugins} loaded={this.state.pluginsLoaded} />);
-			if (this.state.selectedTag !== false) {
-				heading.push(<ListHeading key="ListHeading" text={this.state.selectedTag.capitalizeFirstLetter()} selectTag={this._selectTag}></ListHeading>);
-			}
-		} else {
-			mainContent.push(<TagList key="TagList" tags={this.state.tags} selectTag={this._selectTag}/>);
-		}
+		// if (this.state.searchTerm !== "" || this.state.selectedTag !== false) {
+		// 	mainContent.push(<PluginList key="PluginList" plugins={this.state.plugins} loaded={this.state.pluginsLoaded} />);
+		// 	if (this.state.selectedTag !== false) {
+		// 		heading.push(<ListHeading key="ListHeading" text={this.state.selectedTag.capitalizeFirstLetter()} selectTag={this._selectTag}></ListHeading>);
+		// 	}
+		// } else {
+		// 	mainContent.push(<TagList key="TagList" tags={this.state.tags} selectTag={this._selectTag}/>);
+		// }
+		mainContent.push(<PluginList key="PluginList" plugins={this.state.plugins} loaded={this.state.pluginsLoaded} />);
 
 		return(
 			<div>
