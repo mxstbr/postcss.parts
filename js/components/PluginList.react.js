@@ -19,6 +19,7 @@ var PluginList = React.createClass({
   				pluginList.push(
             <PluginListItem key={"list-item-" + plugin.name[0]}
   						name={plugin.name[0].replace("postcss-", "")}
+              id={i}
   						description={plugin.description[0]}
   						url={plugin.repository[0].replace("git+", "")} />
           );

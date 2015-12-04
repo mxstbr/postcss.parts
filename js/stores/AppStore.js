@@ -48,6 +48,7 @@ var state = {
 	],
 	pluginsLoaded: false,
 	selectedTag: false,
+	selectedPlugin: false,
 	searchTerm: ""
 }
 var _fullPlugins = [];
@@ -85,7 +86,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
 		} else {
 			state.plugins = _fullPlugins;
 		}
-		AppStore.emitChange();
 	},
 	_selectTag: function(name) {
 		if (name === "" || name === undefined || name === null) {
@@ -95,23 +95,16 @@ var AppStore = assign({}, EventEmitter.prototype, {
 			state.selectedTag = name;
 			AppStore._search(state.searchTerm, name);
 		}
-		AppStore.emitChange();
+	},
+	_selectPlugin: function(id) {
+		if (id === "" || id === undefined || id === null) {
+			state.selectedPlugin = false;
+		} else {
+			state.selectedPlugin = _fullPlugins[id];
+		}
 	},
 	_getPlugins: function() {
-		// fetch('https://raw.githubusercontent.com/himynameisdave/postcss-plugins/master/plugins.json')
-		// 	.then(this._checkStatus)
-		// 	.then(function(response) {
-		//     return response.json();
-		//   }).then(function(json) {
-		//     state.plugins = _fullPlugins = json;
-		//     state.pluginsLoaded = true;
-		//     AppStore.emitChange();
-		//   }).catch(function(ex) {
-		//     state.plugins = _fullPlugins = require('postcss-plugins');
-		//     state.pluginsLoaded = true;
-		//     AppStore.emitChange();
-		//   });
-		fetch('https://npmsearch.com/query?q=keywords:postcss-plugin&fields=name,rating,description,repository&sort=rating:desc&size=1000')
+		fetch('https://npmsearch.com/query?q=keywords:postcss-plugin&fields=name,rating,description,repository,readme&sort=rating:desc&size=1000')
 			.then(this._checkStatus)
 			.then(function(response) {
 				return response.json();
@@ -170,6 +163,9 @@ AppDispatcher.register(function(payload) {
 			break;
 		case AppConstants.SELECT_TAG:
 			AppStore._selectTag(action.name, action.tag);
+			break;
+		case AppConstants.SELECT_PLUGIN:
+			AppStore._selectPlugin(action.id);
 			break;
 		default:
 			return false;

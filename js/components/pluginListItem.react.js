@@ -1,3 +1,5 @@
+var AppActions = require('../actions/AppActions');
+
 var PluginListItem = React.createClass({
 	render: function() {
 		if (this.props.spinner === true) {
@@ -21,7 +23,7 @@ var PluginListItem = React.createClass({
 			);
 		}
 		return(
-			<a className="plugin" href={this.props.url}>
+			<a className="plugin" onClick={() => { AppActions.selectPlugin(this.props.id); }}>
 				<h2 className="plugin__name">{this.props.name}</h2>
 				<h3 className="plugin__description">{this.props.description}</h3>
 			</a>

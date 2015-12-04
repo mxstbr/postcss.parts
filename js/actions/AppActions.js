@@ -19,6 +19,12 @@ var AppActions = {
 			name: name,
 			tag: tag
     });
+	},
+	selectPlugin: function(id) {
+		AppDispatcher.handleAction({
+			actionType: AppConstants.SELECT_PLUGIN,
+			id: id
+		});
 	}
 };
 
