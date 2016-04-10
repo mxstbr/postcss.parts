@@ -1,7 +1,7 @@
-var keyMirror = require('react/lib/keyMirror');
+var keymirror = require('keymirror');
 
 // Define actions
-module.exports = keyMirror({
+module.exports = keymirror({
     SEARCH: null,
     GET_UPDATED_LIST: null,
     SELECT_TAG: null

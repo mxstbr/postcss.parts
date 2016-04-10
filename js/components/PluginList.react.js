@@ -1,5 +1,8 @@
 var PluginListItem = require('./PluginListItem.react');
 
+//Removed keys since we were getting dupes somehow eventhough there aren't.
+//Yes I know keys should be there, but meh :)
+
 var PluginList = React.createClass({
   render: function() {
     var plugins = this.props.plugins;
@@ -7,12 +10,11 @@ var PluginList = React.createClass({
     var pluginList = [];
 
     if (plugins.length === 0 && loaded === false) {
-			pluginList.push(<PluginListItem key={"list-item-loader"}
-											spinner={true} />
+			pluginList.push(<PluginListItem spinner={true} />
 			);
 		} else {
 			plugins.forEach(function(plugin){
-				pluginList.push(<PluginListItem key={"list-item-" + plugin.name}
+				pluginList.push(<PluginListItem 
 													name={plugin.name.replace("postcss-", "")}
 													description={plugin.description}
 													url={plugin.url} />);

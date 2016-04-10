@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppActions = require('../actions/AppActions');
 var EventEmitter = require('events').EventEmitter;
 var AppConstants = require('../constants/AppConstants');
-var assign = require('react/lib/Object.assign');
+var assign = require('object-assign');
 var Promise = require('es6-promise').Promise;
 require('whatwg-fetch');
 
