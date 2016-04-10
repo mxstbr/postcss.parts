@@ -49,9 +49,12 @@ module.exports = function(grunt) {
 		    	src: 'js/app.js',
 		    	dest: 'js/bundle.js',
 		    },
-	    	options: {
-	    		transform: ['reactify'] // transform jsx into js
-	    	}
+            
+            options: {
+               transform: [
+                  ["babelify", {presets: ["es2015", "react"]}]
+               ]
+            },
 	    },
 	    uglify: {
 	        bundle: {
@@ -66,7 +69,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-browserify');
-	grunt.loadNpmTasks('grunt-babel');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	// Default task
 	grunt.registerTask('default', ['connect', 'watch']);

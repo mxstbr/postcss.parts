@@ -1,15 +1,20 @@
-var SearchField = React.createClass({
-  render: function() {
-    var placeholder = "Search";
-    if (this.props.selectedTag !== "" && this.props.selectedTag !== undefined && this.props.selectedTag !== false) {
-      placeholder += " in " + this.props.selectedTag.capitalizeFirstLetter();
+import React from "react";
+import capitalizeFirstLetter from "../utils/capitalize";
+
+const SearchField = ({ tag, search, value}) => {
+    
+    let placeholder = "Search";
+    
+    if (tag) {
+      placeholder += " in " + capitalizeFirstLetter(tag);
     }
+    
     return (
       <div className="plugin__search">
-        <input className="plugin__search-field" type="search" placeholder={placeholder} autoFocus={true} onChange={this.props.search} />
+        <input className="plugin__search-field" value={value} type="search" placeholder={placeholder} autoFocus={true} onChange={search} />
       </div>
     );
-  }
-});
+}
 
-module.exports = SearchField;
+
+export default SearchField;

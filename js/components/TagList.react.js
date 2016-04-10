@@ -1,18 +1,14 @@
-var TagListItem = require('./TagListItem.react');
+import React from "react";
 
-var TagList = React.createClass({
-  render: function() {
-    var tagList = [];
-    this.props.tags.forEach(function(tag) {
-      tagList.push(<TagListItem key={"tag-" + tag} name={tag} selectTag={this.props.selectTag} />);
-    }.bind(this));
+import TagListItem from "./TagListItem.react";
+import Tags from "../tags";
 
+const TagList = ({ selectTag }) => {
     return(
-      <div>
-        {tagList}
-      </div>
+        <div>
+            {Tags.map((tag) => <TagListItem key={"tag-" + tag} name={tag} />)}
+        </div>
     )
-  }
-});
+}
 
-module.exports = TagList;
+export default TagList;

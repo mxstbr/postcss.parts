@@ -1,5 +1,6 @@
-var Header = React.createClass({
-  render: function() {
+import React from "react";
+
+const Header = () => {
     return(
 			<section className="header">
 				<a href="https://twitter.com/mxstbr" className="header__logo" >
@@ -10,7 +11,6 @@ var Header = React.createClass({
 				<h2 className="header__subtitle">A searchable catalog of PostCSS plugins</h2>
 			</section>
     );
-  }
-});
+}
 
-module.exports = Header;
+export default Header;

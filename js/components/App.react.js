@@ -1,59 +1,65 @@
-var AppStore = require('../stores/AppStore');
-var AppActions = require('../actions/AppActions');
+import React, { Component } from "react";
 
-var PluginList = require('./PluginList.react');
-var TagList = require('./TagList.react');
-var Header = require('./Header.react');
-var SearchField = require('./SearchField.react');
-var ListHeading = require('./ListHeading.react');
+import capitalizeFirstLetter from "../utils/capitalize";
 
-var App = React.createClass({
-	getInitialState: function() {
-		return AppStore.getData();
-	},
-	componentDidMount: function() {
-		AppStore.addChangeListener(this._onChange);
-		AppActions.getUpdatedList();
-	},
-	componentWillUnmount: function() {
-		AppStore.removeChangeListener(this._onChange);
-	},
-	render: function() {
-		var mainContent = [];
-		var heading = [];
+import Header from './Header.react';
+import PluginList from './PluginList.react';
+import SearchField from './SearchField.react';
+import ListHeading from './ListHeading.react';
 
-		if (this.state.searchTerm !== "" || this.state.selectedTag !== false) {
-			mainContent.push(<PluginList key="PluginList" plugins={this.state.plugins} loaded={this.state.pluginsLoaded} />);
-			if (this.state.selectedTag !== false) {
-				heading.push(<ListHeading key="ListHeading" text={this.state.selectedTag.capitalizeFirstLetter()} selectTag={this._selectTag}></ListHeading>);
-			}
-		} else {
-			mainContent.push(<TagList key="TagList" tags={this.state.tags} selectTag={this._selectTag}/>);
-		}
+import * as PluginActions from "../actions/Plugins";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { replace, push } from 'react-router-redux';
+
+class App extends Component {
+    
+    constructor(props, context) {
+        super(props, context);
+        this._search = this._search.bind(this);
+    }
+    
+    componentWillMount() {
+        const { actions: {loadPlugins}} = this.props;
+        loadPlugins();
+    }
+    
+	render() {        
+        const { children, location: { query }, params: { tag } } = this.props;
+        const { searchTerm } = query;
+        let content = children;
+        
+        if (!tag && searchTerm) {
+            content = <PluginList {...this.props} />
+        }
+        
 		return(
 			<div>
 				<Header />
 				<section className="wrapper">
-					<SearchField key="SearchField" search={this._search} selectedTag={this.state.selectedTag} />
-					{ heading }
-					{ mainContent }
+					<SearchField value={searchTerm} tag={tag} search={this._search} />
+                    { tag ? <ListHeading key="ListHeading" text={capitalizeFirstLetter(tag)}></ListHeading> : null }
+					{ content }
 				</section>
 			</div>
 		);
-	},
-	_search: function(evt) {
-		var text = evt.target.value;
-		AppActions.search(text, this.state.selectedTag);
-	},
-	_selectTag: function(name) {
-		AppActions.selectTag(name);
-		document.querySelector(".plugin__search-field").focus();
-	},
-	// If the data changes, get the new data and rerender if something changed
-	_onChange: function() {
-	    this.setState(AppStore.getData());
 	}
-});
+    
+	_search(evt) {
+        const { dispatch, location: { pathname , query: { searchTerm }} } = this.props;
+        //Create one history slot for having a query so the back button will remove the query
+        const action = searchTerm ? replace : push;
+        
+        dispatch(action(`${pathname}?searchTerm=${evt.target.value}`))
+	}
+}
 
-module.exports = App;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(PluginActions, dispatch),
+        dispatch
+    }
+}
+
+export default connect(undefined, mapDispatchToProps)(App);
