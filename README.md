@@ -16,7 +16,7 @@ If you are stuck, you can contact [@mxstbr](https://twitter.com/mxstbr) or [@him
 
 3. Run `grunt` to start the local web server.
 
-4. Go to `http://localhost:8000` and you should see the app running!
+4. Go to `http://localhost:1234` and you should see the app running!
 
 If you change something in the JavaScript or CSS files, they get compiled and minified automatically on save. Simply look at your browser and you should see the changes you made!
 
