@@ -1,0 +1,33 @@
+<ifModule mod_rewrite.c>
+
+
+  #######################################################################
+  # GENERAL                                                             #
+  #######################################################################
+
+  # Make apache follow sym links to files
+  Options +FollowSymLinks
+  # If somebody opens a folder, hide all files from the resulting folder list
+  IndexIgnore */*
+
+
+  #######################################################################
+  # REWRITING                                                           #
+  #######################################################################
+
+  # Enable rewriting
+  RewriteEngine On
+
+  # If the file with the specified name in the browser doesn't exist
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  # and the directory with the specified name in the browser doesn't exist
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # and we are not opening the root already (otherwise we get a redirect loop)
+  RewriteCond %{REQUEST_FILENAME} !\/$
+
+  # Rewrite all requests to the root
+  RewriteRule ^(.*) /
+
+</ifModule>
