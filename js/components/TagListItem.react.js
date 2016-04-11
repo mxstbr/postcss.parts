@@ -1,14 +1,13 @@
-var TagListItem = React.createClass({
-  render: function() {
-    return(
-      <div className="tag" onClick={this._selectTag}>
-				<h2 className="tag__name">{this.props.name.capitalizeFirstLetter()}</h2>
-			</div>
-    );
-  },
-  _selectTag: function() {
-    this.props.selectTag(this.props.name);
-  }
-});
+import React from "react";
+import { Link } from "react-router";
+import capitalizeFirstLetter from "../utils/capitalize";
 
-module.exports = TagListItem;
+const TagListItem = ({name}) => {
+    return(
+        <Link to={`/tag/${name}`} className="tag">
+            <h2 className="tag__name">{capitalizeFirstLetter(name)}</h2>
+        </Link>
+    );
+}
+
+export default TagListItem;
