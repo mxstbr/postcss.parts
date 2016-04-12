@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { Router, Route, browserHistory, IndexRoute } from "react-router";
 import App from "./components/App.react";
 import TagList from "./components/TagList.react";
+import NotFound from "./components/NotFound";
 import PluginList from "./components/PluginList.react";
 
 import { syncHistoryWithStore } from "react-router-redux";
@@ -13,6 +14,7 @@ import { Provider } from "react-redux";
 import "whatwg-fetch";
 
 import Css from "../css/main.css";
+import Tags from "./tags";
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -20,7 +22,10 @@ var routes = (
       <Router history={history}>
         <Route path="/" component={App}>
             <IndexRoute component={TagList} />
-            <Route path="tag/:tag" component={PluginList} />
+            {
+                Tags.map((tag) => <Route path={`tag/${tag}`} component={PluginList} />)
+            }
+            <Route path="*" component={NotFound} />
         </Route>
       </Router>
 )
