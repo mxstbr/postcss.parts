@@ -21,6 +21,6 @@
 @import 'components/_pluginlist';
 @import 'components/_taglist';
 @import 'components/_loading-spinner';
-
+@import 'components/_notfound';
 /* 6. Themes */
 @import 'themes/_default';
