@@ -12,28 +12,30 @@ import * as PluginActions from "../actions/Plugins";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { replace, push } from 'react-router-redux';
+import getTag from "../utils/url";
 
 class App extends Component {
-    
+
     constructor(props, context) {
         super(props, context);
         this._search = this._search.bind(this);
     }
-    
+
     componentWillMount() {
         const { actions: {loadPlugins}} = this.props;
         loadPlugins();
     }
-    
-	render() {        
-        const { children, location: { query }, params: { tag } } = this.props;
+
+	render() {
+        const { children, location: { query, pathname } } = this.props;
         const { searchTerm } = query;
+        const tag = getTag(pathname);
         let content = children;
-        
+
         if (!tag && searchTerm) {
             content = <PluginList {...this.props} />
         }
-        
+
 		return(
 			<div>
 				<Header />
@@ -45,12 +47,12 @@ class App extends Component {
 			</div>
 		);
 	}
-    
+
 	_search(evt) {
         const { dispatch, location: { pathname , query: { searchTerm }} } = this.props;
         //Create one history slot for having a query so the back button will remove the query
         const action = searchTerm ? replace : push;
-        
+
         dispatch(action(`${pathname}?searchTerm=${evt.target.value}`))
 	}
 }

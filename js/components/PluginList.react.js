@@ -6,12 +6,12 @@ import Spinner from "./Spinner";
 //Removed keys since we were getting dupes somehow eventhough there aren't.
 //Yes I know keys should be there, but meh :)
 
-const PluginList = ({ plugins, location, params }) => {
+const PluginList = ({ plugins, location, route }) => {
 
     let content = <Spinner />
 
     const { query: { searchTerm } } = location;
-    const { tag } = params;
+    const { tag } = route;
 
     //plugins.length is our loaded check
     if (plugins.length > 0) {
