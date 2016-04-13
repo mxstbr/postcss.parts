@@ -12,6 +12,8 @@ import store from "./stores/CreateStore";
 import { Provider } from "react-redux";
 import "whatwg-fetch";
 
+import Css from "../css/main.css";
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 var routes = (

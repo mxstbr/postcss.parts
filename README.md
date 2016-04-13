@@ -14,7 +14,7 @@ If you are stuck, you can contact [@mxstbr](https://twitter.com/mxstbr) or [@him
 
 2. Run `npm install` to install the dependencies.
 
-3. Run `grunt` to start the local web server.
+3. Run `npm run dev` to start the local web server.
 
 4. Go to `http://localhost:1234` and you should see the app running!
 
