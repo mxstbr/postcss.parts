@@ -1,7 +1,7 @@
 import React from "react";
 import capitalizeFirstLetter from "../utils/capitalize";
 
-const SearchField = ({ tag, search, value}) => {
+const SearchField = ({ tag, onChange, value}) => {
     
     let placeholder = "Search";
     
@@ -11,7 +11,14 @@ const SearchField = ({ tag, search, value}) => {
     
     return (
       <div className="plugin__search">
-        <input className="plugin__search-field" value={value} type="search" placeholder={placeholder} autoFocus={true} onChange={search} />
+        <input 
+          className="plugin__search-field" 
+          value={value} 
+          type="text" 
+          placeholder={placeholder} 
+          autoFocus 
+          onChange={onChange} 
+        />
       </div>
     );
 }

@@ -23,7 +23,7 @@ var routes = (
         <Route path="/" component={App}>
             <IndexRoute component={TagList} />
             {
-                Tags.map((tag) => <Route path={`tag/${tag}`} component={PluginList} tag={tag} />)
+                Tags.map((tag) => <Route key={tag} path={`tag/${tag}`} component={PluginList} tag={tag} />)
             }
             <Route path="*" component={NotFound} />
         </Route>
