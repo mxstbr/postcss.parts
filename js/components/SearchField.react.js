@@ -1,13 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import capitalizeFirstLetter from "../utils/capitalize";
 
-const SearchField = ({ tag, onChange, value}) => {
-    
+import Clear from "./Clear.react";
+
+class SearchField extends Component {
+  render() {
+
+    const { tag, value, onChange } = this.props;
+
     let placeholder = "Search";
     
     if (tag) {
       placeholder += " in " + capitalizeFirstLetter(tag);
     }
+
+    const location = tag ? `/tag/${tag}` : '/';
     
     return (
       <div className="plugin__search">
@@ -17,10 +24,13 @@ const SearchField = ({ tag, onChange, value}) => {
           type="text" 
           placeholder={placeholder} 
           autoFocus 
-          onChange={onChange} 
+          onChange={onChange}
+          ref={(c) => this.input = c}
         />
+        { value && <Clear location={location} onClear={() => this.input.focus()} /> }
       </div>
     );
+  }
 }
 
 

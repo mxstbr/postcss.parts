@@ -35,7 +35,7 @@ class App extends Component {
 			<div>
 				<Header />
 				<section className="wrapper">
-					<SearchField value={searchTerm} tag={tag} onChange={this.handleSearch} />
+					<SearchField value={searchTerm || ""} tag={tag} onChange={this.handleSearch} />
                     { tag ? <ListHeading key="ListHeading" text={capitalizeFirstLetter(tag)}></ListHeading> : null }
 					{ content }
 				</section>
