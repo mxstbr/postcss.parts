@@ -1,45 +1,4 @@
-/*This file contains all styles related to the header of the site/application.*/
-
-.header {
-	width: 100%;
-	text-align: center;
-	margin: 5em 0;
-}
-
-.header__title {
-	font-size: 3em;
-	color: $brand-color;
-	margin-bottom: 0.25em;
-}
-
 .header__link {
 	color: $brand-color;
 	text-decoration: none;
-}
-
-.header__subtitle {
-	font-weight: 400;
-	color: $light-brand-color;
-	margin-top: 0;
-}
-
-.header__add {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 2%;
-	color: $mid-grey;
-	text-decoration: none;
-}
-
-.header__logo {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 2%;
-	display: block;
-	font-size: 1.5em;
-	font-family: Georgia, Times, 'Times New Roman', serif;
-	text-decoration: none;
-	color: #999999;
 }
