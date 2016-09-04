@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PluginListItem from "./PluginListItem.react";
+import VisuallyHidden from "./VisuallyHidden.react";
 import Spinner from "./Spinner";
 
 //Removed keys since we were getting dupes somehow eventhough there aren't.
@@ -30,7 +31,7 @@ const PluginList = ({ plugins, location, route }) => {
 
     return(
       <div>
-        <h2 className="visually-hidden">Plugin List</h2>
+        <VisuallyHidden component="h2">Plugin List</VisuallyHidden>
         {content}
       </div>
     );
