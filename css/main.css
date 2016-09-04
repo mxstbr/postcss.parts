@@ -5,7 +5,6 @@
 
 /* 2. Configuration and helpers */
 @import 'utils/_variables';
-@import 'base/_helpers';
 
 /* 3. Base stuff */
 @import 'base/_base';
@@ -19,6 +18,5 @@
 @import 'components/_search-field';
 @import 'components/_taglist';
 @import 'components/_loading-spinner';
-@import 'components/_notfound';
 /* 6. Themes */
 @import 'themes/_default';
