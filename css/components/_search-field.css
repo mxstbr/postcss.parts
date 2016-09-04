@@ -56,20 +56,6 @@
    font-weight: 300;
 }
 
-.search__heading {
-	padding: 1em;
-	margin: 0;
-	border-bottom: 1px solid $light-grey;
-	text-align: center;
-	width: 100%;
-	position: relative;
-}
-
-.search__heading h2 {
-	padding: 0;
-	margin: 0;
-}
-
 .search__heading-back {
 	position: absolute;
 	top: 0;
@@ -81,9 +67,4 @@
 .search__heading-back:hover {
 	background-color: $light-grey;
 	cursor: pointer;
-}
-
-.search__heading-back svg {
-	height: 1.5em;
-	width: 1.5em;
 }
