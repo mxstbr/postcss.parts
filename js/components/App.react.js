@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import withRouter from "react-router/lib/withRouter";
 import capitalizeFirstLetter from "../utils/capitalize";
 
 import Header from './Header.react';
@@ -7,28 +7,23 @@ import PluginList from './PluginList.react';
 import SearchField from './SearchField.react';
 import ListHeading from './ListHeading.react';
 
-import * as PluginActions from "../actions/Plugins";
-
+import { loadPlugins } from "../actions/Plugins";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { replace, push } from 'react-router-redux';
 import getTag from "../utils/url";
 
 class App extends Component {
 
     constructor(props, context) {
         super(props, context);
-        this._search = this._search.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
-    componentWillMount() {
-        const { actions: {loadPlugins}} = this.props;
-        loadPlugins();
+    componentDidMount() {
+        this.props.loadPlugins();   
     }
 
 	render() {
-        const { children, location: { query, pathname } } = this.props;
-        const { searchTerm } = query;
+        const { children, location: { query: { searchTerm }, pathname } } = this.props;
         const tag = getTag(pathname);
         let content = children;
 
@@ -40,7 +35,7 @@ class App extends Component {
 			<div>
 				<Header />
 				<section className="wrapper">
-					<SearchField value={searchTerm} tag={tag} search={this._search} />
+					<SearchField value={searchTerm || ""} tag={tag} onChange={this.handleSearch} />
                     { tag ? <ListHeading key="ListHeading" text={capitalizeFirstLetter(tag)}></ListHeading> : null }
 					{ content }
 				</section>
@@ -48,20 +43,16 @@ class App extends Component {
 		);
 	}
 
-	_search(evt) {
-        const { dispatch, location: { pathname , query: { searchTerm }} } = this.props;
+	handleSearch(evt) {
+        const { location: { pathname , query: { searchTerm }} } = this.props;
         //Create one history slot for having a query so the back button will remove the query
-        const action = searchTerm ? replace : push;
-
-        dispatch(action(`${pathname}?searchTerm=${evt.target.value}`))
+        const action = searchTerm ? 'replace' : 'push';
+        this.props.router[action](`${pathname}?searchTerm=${evt.target.value}`)
 	}
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        actions: bindActionCreators(PluginActions, dispatch),
-        dispatch
-    }
+const mapDispatchToProps = {
+    loadPlugins
 }
 
-export default connect(undefined, mapDispatchToProps)(App);
+export default connect(undefined, mapDispatchToProps)(withRouter(App));

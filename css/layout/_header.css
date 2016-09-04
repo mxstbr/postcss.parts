@@ -12,6 +12,11 @@
 	margin-bottom: 0.25em;
 }
 
+.header__link {
+	color: $brand-color;
+	text-decoration: none;
+}
+
 .header__subtitle {
 	font-weight: 400;
 	color: $light-brand-color;

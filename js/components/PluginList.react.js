@@ -24,7 +24,7 @@ const PluginList = ({ plugins, location, route }) => {
             return tagFilter && (name.indexOf(lowerSearch) > -1 || desc.indexOf(lowerSearch) > -1)
         });
 
-	    content = tagPlugins.map((plugin) => <PluginListItem  name={plugin.name.replace("postcss-", "")} description={plugin.description} url={plugin.url} />)
+	    content = tagPlugins.map((plugin) => <PluginListItem name={plugin.name.replace("postcss-", "")} description={plugin.description} url={plugin.url} />)
     }
 
 
