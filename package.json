@@ -12,6 +12,7 @@
     "react-router-scroll": "^0.3.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
+    "styled-components": "0.0.4",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin') 
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     devtool: 'source-map',
@@ -32,7 +32,7 @@ module.exports = {
               },
         ]
     },
-    
+
     plugins: [
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify('production') }
@@ -46,7 +46,11 @@ module.exports = {
             from: "css/main.css"
         }),
         require('postcss-simple-vars')(), // replace the variables
-        require('cssnano')(),
+        require('cssnano')({
+          discardUnused: false,
+          mergeIndents: false,
+          reduceIdents: false,
+        }),
         require('autoprefixer')({ browsers: ['last 2 versions'] })
     ]
 }

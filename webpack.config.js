@@ -36,7 +36,11 @@ module.exports = {
             from: "css/main.css"
         }),
         require('postcss-simple-vars')(), // replace the variables
-        require('cssnano')(),
+        require('cssnano')({
+          discardUnused: false,
+          mergeIndents: false,
+          reduceIdents: false,
+        }),
         require('autoprefixer')({ browsers: ['last 2 versions'] })
     ],
     devServer: {
@@ -48,5 +52,3 @@ module.exports = {
         }),
     ]
 }
-
-        	
