@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router";
 import styled from 'styled-components';
 
+import constants from "../constants";
+
 const Wrapper = styled.div`
 padding: 1em;
 margin: 0;
-border-bottom: 1px solid $light-grey;
+border-bottom: 1px solid ${constants.lightGrey};
 text-align: center;
 width: 100%;
 position: relative;
