@@ -15,7 +15,6 @@
 
 /* 5. Components */
 @import 'components/_search-field';
-@import 'components/_taglist';
 @import 'components/_loading-spinner';
 /* 6. Themes */
 @import 'themes/_default';
