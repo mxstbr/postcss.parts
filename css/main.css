@@ -14,7 +14,6 @@
 @import 'layout/_footer';
 
 /* 5. Components */
-@import 'components/_buttons';
 @import 'components/_search-field';
 @import 'components/_taglist';
 @import 'components/_loading-spinner';
