@@ -9,10 +9,6 @@
 /* 3. Base stuff */
 @import 'base/_base';
 
-/* 4. Layout-related sections */
-@import 'layout/_header';
-@import 'layout/_footer';
-
 /* 5. Components */
 @import 'components/_search-field';
 @import 'components/_loading-spinner';

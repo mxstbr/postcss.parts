@@ -10,6 +10,11 @@ const HeaderWrapper = styled.section`
   margin: 5em 0;
 `;
 
+const HeaderLink = styled(Link)`
+	color: ${constants.brandColor};
+  text-decoration: none;
+`;
+
 const Title = styled.h1`
   font-size: 3em;
   color: ${constants.brandColor};
@@ -51,7 +56,7 @@ const Header = () => {
 				</LogoWrapper>
 				<TopLink href="https://github.com/himynameisdave/postcss-plugins#submitting-a-new-plugin">Add a plugin</TopLink>
 				<Title>
-					<Link to="/" className="header__link">PostCSS.parts</Link>
+					<HeaderLink to="/">PostCSS.parts</HeaderLink>
 				</Title>
 				<Subtitle>A searchable catalog of PostCSS plugins</Subtitle>
 			</HeaderWrapper>
