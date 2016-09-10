@@ -20,9 +20,9 @@ const Description = styled.h3`
   font-weight: 300;
   margin-top: 0;
   margin-bottom: 0;
-  ${media(`max-width: ${constants.maxWidth}`, css`
+  @media (max-width: ${constants.maxWidth}) {
     display: block;
-  `)}
+  }
 `;
 
 const PluginListItem = ({ url, name, description }) => {
