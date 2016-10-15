@@ -9,6 +9,7 @@ import Clear from "./Clear.react";
 const SearchWrapper = styled.div`
   width: 100%;
   border-bottom: 1px solid ${constants.lightGrey};
+  ${props => console.log(props.theme)}
   position: relative;
   padding-right: 2em;
 `;
@@ -27,6 +28,25 @@ const SearchInput = styled.input`
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   outline: none;
+
+  &::-webkit-input-placeholder { /* WebKit browsers */
+      color: ${constants.midGrey};
+      font-weight: 300;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color: ${constants.midGrey};
+     font-weight: 300;
+     opacity:  1;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color: ${constants.midGrey};
+     font-weight: 300;
+     opacity:  1;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+     color: ${constants.midGrey};
+     font-weight: 300;
+  }
 `;
 
 class SearchField extends Component {
