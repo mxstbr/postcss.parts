@@ -58,13 +58,13 @@ class App extends Component {
 		return(
 			<div>
 				<Header />
-				<Wrapper>
-					<SearchField value={searchTerm || ""} tag={tag} onChange={this.handleSearch} />
+			  <Wrapper>
+				  <SearchField value={searchTerm || ""} tag={tag} onChange={this.handleSearch} />
           {tag && (
             <ListHeading key="ListHeading" text={capitalizeFirstLetter(tag)}></ListHeading>
           )}
 					{ content }
-				</Wrapper>
+			  </Wrapper>
 			</div>
 		);
 	}
