@@ -15,21 +15,21 @@ import store from "./stores/CreateStore";
 import { Provider } from "react-redux";
 import "whatwg-fetch";
 
-import Css from "../css/main.css";
+import globalStyes from './global-styles';
 import Tags from "./tags";
 
 const history = syncHistoryWithStore(browserHistory, store);
 
 var routes = (
-      <Router history={history} render={applyRouterMiddleware(useScroll())}>
-        <Route path="/" component={App}>
-            <IndexRoute component={TagList} />
-            {
-                Tags.map((tag) => <Route key={tag} path={`tag/${tag}`} component={PluginList} tag={tag} />)
-            }
-            <Route path="*" component={NotFound} />
-        </Route>
-      </Router>
+  <Router history={history} render={applyRouterMiddleware(useScroll())}>
+    <Route path="/" component={App}>
+      <IndexRoute component={TagList} />
+      {
+        Tags.map((tag) => <Route key={tag} path={`tag/${tag}`} component={PluginList} tag={tag} />)
+      }
+        <Route path="*" component={NotFound} />
+    </Route>
+  </Router>
 )
 
 render(
