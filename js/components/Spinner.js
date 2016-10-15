@@ -1,7 +1,12 @@
 import React from "react";
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import PluginListItemWrapper from './PluginListItemWrapper.react';
+
+const circleFadeAnimation = keyframes`
+  0%, 39%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+`;
 
 const SpinnerWrapper = styled.div`
   margin: 2em auto;
@@ -30,8 +35,7 @@ const SpinnerCircle = (props) => {
       height: 15%;
       background-color: #333;
       border-radius: 100%;
-      -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
-      animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+      animation: ${circleFadeAnimation} 1.2s infinite ease-in-out both;
       ${props.delay && `
         -webkit-animation-delay: ${props.delay}s;
         animation-delay: ${props.delay}s;
