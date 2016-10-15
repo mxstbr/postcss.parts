@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A searchable catalog of PostCSS plugins",
   "dependencies": {
+    "object-assign": "^4.1.0",
     "postcss-plugins": "^1.8.6",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
@@ -12,7 +13,7 @@
     "react-router-scroll": "^0.3.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
-    "styled-components": "0.0.4",
+    "styled-components": "^1.0.0",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
