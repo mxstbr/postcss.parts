@@ -453,5 +453,4 @@ injectGlobal`
 		background-image: url('/img/cream_pixels.png');
 		background-repeat: repeat;
 	}
-;
-`
+`;
