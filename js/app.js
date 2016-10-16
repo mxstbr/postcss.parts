@@ -19,7 +19,7 @@ import {
 
 import globalStyes from './global-styles';
 
-import App from './components/App.react';
+import App from './components/App';
 import TagList from './components/TagList.react';
 import NotFound from './components/NotFound';
 import PluginList from './components/PluginList.react';
