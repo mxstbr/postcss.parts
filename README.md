@@ -1,6 +1,6 @@
 # [postcss.parts](http://postcss.parts)
 
-A searchable catalog of PostCSS plugins, built using React.js and untilising the Flux application architecture.
+A searchable catalog of PostCSS plugins, built with React/Redux/styled-components.
 
 ## Adding a plugin
 
