@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Wrapper from './Wrapper';
 import Header from '../Header.react';
-import PluginList from '../PluginList.react';
+import PluginList from '../PluginList';
 import SearchField from '../SearchField.react';
 import ListHeading from '../ListHeading.react';
 
