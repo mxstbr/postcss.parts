@@ -1,3 +1,9 @@
+/**
+ * app.js
+ *
+ * Global setup for react, routing, redux
+ */
+
 import 'whatwg-fetch';
 import React from 'react';
 import { render } from 'react-dom';
@@ -25,9 +31,9 @@ import NotFound from './components/NotFound';
 import PluginList from './components/PluginList';
 
 import rootReducer from './reducers/index';
-import Tags from './tags';
+import { tags } from './constants';
 
-// Apply the middleware to the store
+// Create the redux store and connect it to redux
 const routingMiddleware = routerMiddleware(browserHistory)
 const store = createStore(rootReducer, applyMiddleware(thunk, routingMiddleware));
 const history = syncHistoryWithStore(browserHistory, store);
@@ -37,7 +43,8 @@ render(
     <Router history={history} render={applyRouterMiddleware(useScroll())}>
       <Route path="/" component={App}>
         <IndexRoute component={TagList} />
-        {Tags.map((tag) => <Route key={tag} path={`tag/${tag}`} component={PluginList} tag={tag} />)}
+        {/* Create a route for each tag at /tag/<tagname> */}
+        {tags.map((tag) => <Route key={tag} path={`tag/${tag}`} component={PluginList} tag={tag} />)}
         <Route path="*" component={NotFound} />
       </Route>
     </Router>

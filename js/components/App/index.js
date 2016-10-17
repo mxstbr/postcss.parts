@@ -8,10 +8,10 @@ import PluginList from '../PluginList';
 import SearchField from '../SearchField';
 import ListHeading from '../ListHeading';
 
-import { loadPlugins } from '../../actions/Plugins';
+import { loadPlugins } from '../../actions';
 
 import getTag from '../../utils/url';
-import capitalizeFirstLetter from '../../utils/capitalize';
+import capitalize from '../../utils/capitalize';
 
 class App extends Component {
   constructor() {
@@ -44,7 +44,7 @@ class App extends Component {
 				<Header />
 			  <Wrapper>
 				  <SearchField value={searchTerm || ""} tag={tag} onChange={this.handleSearch} />
-          {tag && (<ListHeading key="ListHeading" text={capitalizeFirstLetter(tag)}></ListHeading>)}
+          {tag && (<ListHeading key="ListHeading" text={capitalize(tag)}></ListHeading>)}
 					{content}
 			  </Wrapper>
 			</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Item from './Item';
-import tags from '../../tags';
+import { tags } from '../../constants';
 
 const TagList = ({ selectTag }) => {
   return (

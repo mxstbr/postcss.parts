@@ -2,7 +2,7 @@ import React from 'react';
 
 import Heading from './Heading';
 
-import capitalizeFirstLetter from '../../utils/capitalize';
+import capitalize from '../../utils/capitalize';
 import getTag from '../../utils/url';
 
 const NotFound = ({ location }) => {
@@ -11,7 +11,7 @@ const NotFound = ({ location }) => {
   let tagText = '';
   const tag = getTag(pathname);
   if (tag) {
-    tagText = `Tag ${capitalizeFirstLetter(tag)} cannot be found. `
+    tagText = `Tag ${capitalize(tag)} cannot be found. `
   }
 
   return (

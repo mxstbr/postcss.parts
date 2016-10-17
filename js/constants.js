@@ -1,3 +1,7 @@
+/**
+ * Global constants: Colors, animations and plugin tags
+ */
+
 import { keyframes } from 'styled-components';
 
 const colors = {
@@ -14,6 +18,26 @@ const animations = {
     0%, 39%, 100% { opacity: 0; }
     40% { opacity: 1; }
   `,
-}
+};
 
-export { colors, animations };
+const tags = [
+	'analysis',
+	'color',
+	'debug',
+	'extensions',
+	'fallbacks',
+	'fonts',
+	'future',
+	'fun',
+	'grids',
+	'images',
+	'media-queries',
+	'optimizations',
+	'other',
+	'pack',
+	'sass',
+	'shortcuts',
+	'svg',
+];
+
+export { colors, animations, tags };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import capitalizeFirstLetter from '../../utils/capitalize';
+import capitalize from '../../utils/capitalize';
 
 import Link from './Link';
 import Wrapper from './Wrapper';
@@ -13,7 +13,7 @@ class SearchField extends Component {
 
     let placeholder;
     if (tag) {
-      placeholder = `Search in ${capitalizeFirstLetter(tag)}`;
+      placeholder = `Search in ${capitalize(tag)}`;
     } else {
       placeholder = 'Search';
     }

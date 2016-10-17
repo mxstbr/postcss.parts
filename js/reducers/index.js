@@ -1,11 +1,14 @@
+/**
+ * Root reducer
+ */
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 
 import plugins from "./plugins";
 
-const rootReducers = combineReducers({
-    plugins,
-    routing: routerReducer
+const rootReducer = combineReducers({
+  plugins,
+  routing: routerReducer
 });
 
-export default rootReducers;
+export default rootReducer;

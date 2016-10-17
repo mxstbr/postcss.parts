@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import styled from 'styled-components';
 
-import capitalizeFirstLetter from '../../utils/capitalize';
+import capitalize from '../../utils/capitalize';
 import { colors } from '../../constants';
 
 const TagLink = styled(Link)`
@@ -36,7 +36,7 @@ const TagLink = styled(Link)`
 const TagListItem = ({name}) => {
   return(
     <TagLink to={`/tag/${name}`}>
-      <h2>{capitalizeFirstLetter(name)}</h2>
+      <h2>{capitalize(name)}</h2>
     </TagLink>
   );
 }
