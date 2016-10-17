@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Wrapper from './Wrapper';
 import Header from '../Header.react';
 import PluginList from '../PluginList';
-import SearchField from '../SearchField.react';
+import SearchField from '../SearchField';
 import ListHeading from '../ListHeading.react';
 
 import { loadPlugins } from '../../actions/Plugins';
