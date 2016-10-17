@@ -6,7 +6,7 @@ import Wrapper from './Wrapper';
 import Header from '../Header';
 import PluginList from '../PluginList';
 import SearchField from '../SearchField';
-import ListHeading from '../ListHeading.react';
+import ListHeading from '../ListHeading';
 
 import { loadPlugins } from '../../actions/Plugins';
 
