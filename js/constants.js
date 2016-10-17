@@ -1,3 +1,5 @@
+import { keyframes } from 'styled-components';
+
 const colors = {
 	lightGrey: '#EDEDED',
 	midGrey: '#999',
@@ -7,4 +9,11 @@ const colors = {
 	lightBrandColor: '#3C93A9',
 };
 
-export default colors;
+const animations = {
+  spinnerCircle: keyframes`
+    0%, 39%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+  `,
+}
+
+export { colors, animations };

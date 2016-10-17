@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import constants from '../../constants';
+import { colors } from '../../constants';
 
 export default styled.h2`
   font-weight: 400;
-  color: ${constants.lightBrandColor};
+  color: ${colors.lightBrandColor};
   margin-top: 0;
 `;

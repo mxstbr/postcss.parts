@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import constants from '../../constants';
+import { colors } from '../../constants';
 import Wrapper from './Wrapper';
 import Name from './Name';
 import Description from './Description';

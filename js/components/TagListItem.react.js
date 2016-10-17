@@ -3,23 +3,23 @@ import { Link } from "react-router";
 import styled from "styled-components";
 
 import capitalizeFirstLetter from "../utils/capitalize";
-import constants from "../constants";
+import { colors } from "../constants";
 
 const TagLink = styled(Link)`
 width: 25%;
 float: left;
-height: calc(${constants.maxWidth} / 4);
+height: calc(${colors.maxWidth} / 4);
 text-align: center;
 display: flex;
 align-items: center;
 justify-content: center;
-border-bottom: 1px solid ${constants.lightGrey};
-border-right: 1px solid ${constants.lightGrey};
+border-bottom: 1px solid ${colors.lightGrey};
+border-right: 1px solid ${colors.lightGrey};
 text-decoration: none;
 color: #000;
 
 &:hover {
-  background-color: ${constants.lightGrey};
+  background-color: ${colors.lightGrey};
   cursor: pointer;
 }
 
@@ -27,9 +27,9 @@ color: #000;
   border-right: none;
 }
 
-@media (max-width: ${constants.maxWidth}) {
+@media (max-width: ${colors.maxWidth}) {
   width: 50%;
-  height: calc(${constants.maxWidth} / 4);
+  height: calc(${colors.maxWidth} / 4);
 }
 `;
 

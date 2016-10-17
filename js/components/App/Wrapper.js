@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import constants from '../../constants';
+import { colors } from '../../constants';
 
 export default styled.section`
-  max-width: ${constants.maxWidth};
+  max-width: ${colors.maxWidth};
   margin: 0 auto;
   display: block;
   border-radius: 5px;

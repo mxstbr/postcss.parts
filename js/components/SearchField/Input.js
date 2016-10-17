@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import constants from '../../constants';
+import { colors } from '../../constants';
 
 export default styled.input`
   width: 100%;
@@ -17,21 +17,21 @@ export default styled.input`
   outline: none;
 
   &::-webkit-input-placeholder { /* WebKit browsers */
-      color: ${constants.midGrey};
+      color: ${colors.midGrey};
       font-weight: 300;
   }
   &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-     color: ${constants.midGrey};
+     color: ${colors.midGrey};
      font-weight: 300;
      opacity:  1;
   }
   &::-moz-placeholder { /* Mozilla Firefox 19+ */
-     color: ${constants.midGrey};
+     color: ${colors.midGrey};
      font-weight: 300;
      opacity:  1;
   }
   &:-ms-input-placeholder { /* Internet Explorer 10+ */
-     color: ${constants.midGrey};
+     color: ${colors.midGrey};
      font-weight: 300;
   }
 `;

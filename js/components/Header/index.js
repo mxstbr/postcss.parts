@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import constants from '../../constants';
+import { colors } from '../../constants';
 
 import Wrapper from './Wrapper';
 import Link from './Link';

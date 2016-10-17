@@ -1,9 +1,9 @@
 import Link from 'react-router/lib/Link';
 import styled from 'styled-components';
 
-import constants from '../../constants';
+import { colors } from '../../constants';
 
 export default styled(Link)`
-	color: ${constants.brandColor};
+	color: ${colors.brandColor};
   text-decoration: none;
 `;
