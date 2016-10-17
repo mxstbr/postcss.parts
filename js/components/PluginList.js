@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import PluginListItem from "./PluginListItem.react";
-import VisuallyHidden from "./VisuallyHidden.react";
-import Spinner from "./Spinner";
+import React from 'react';
+import { connect } from 'react-redux';
+import PluginListItem from './PluginListItem';
+import VisuallyHidden from './VisuallyHidden.react';
+import Spinner from './Spinner';
 
 const PluginList = ({ plugins, location, route }) => {
   const { query: { searchTerm } } = location;

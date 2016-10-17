@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from 'styled-components';
 
-import PluginListItemWrapper from './PluginListItemWrapper.react';
+import PluginListItemWrapper from './PluginListItem/Wrapper';
 
 const circleFadeAnimation = keyframes`
   0%, 39%, 100% { opacity: 0; }
