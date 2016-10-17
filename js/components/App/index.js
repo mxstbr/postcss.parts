@@ -3,7 +3,7 @@ import withRouter from 'react-router/lib/withRouter';
 import { connect } from 'react-redux';
 
 import Wrapper from './Wrapper';
-import Header from '../Header.react';
+import Header from '../Header';
 import PluginList from '../PluginList';
 import SearchField from '../SearchField';
 import ListHeading from '../ListHeading.react';
