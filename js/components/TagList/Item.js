@@ -23,8 +23,10 @@ const TagLink = styled(Link)`
     cursor: pointer;
   }
 
-  &:nth-child(4n) {
-    border-right: none;
+  @media (min-width: ${colors.maxWidth}) {
+    &:nth-child(4n) {
+      border-right: none;
+    }
   }
 
   @media (max-width: ${colors.maxWidth}) {
