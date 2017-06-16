@@ -28,6 +28,7 @@ const PluginList = ({ plugins, location, route }) => {
           key={name}
           description={plugin.description}
           url={plugin.url}
+          stars={plugin.stars}
         />
       );
     });

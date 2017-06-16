@@ -17,7 +17,8 @@ export const loadPlugins = () => {
       .then(res => res.json())
       .then((data) => {
         dispatch(receiveLoadPluginsSuccess(data))
-      }).catch(() => {
+      }).catch((err) => {
+        console.error(err);
         dispatch(receiveLoadPluginsSuccess(plugins));
       });
   };
